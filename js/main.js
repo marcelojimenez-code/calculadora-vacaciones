@@ -25,15 +25,34 @@ class Calcular {
         this.cantidad_dias  = parseInt(cantidad_dias);
         this.alojamiento    = parseInt(alojamiento);
         this.comida         = parseInt(comida);
-        this.entretencion   = parseInt(entretencion);        
+        this.entretencion   = parseInt(entretencion);    
+        this.precio         = 0;    
     }
     
     promedio(){
-        let salida = '';
+
         if (this.cantidad_dias > 0){
             this.precio = (this.alojamiento * this.cantidad_dias) + this.entretencion +this.comida;
+        } 
+        else{
+            this.precio = 0;
+        }
+        console.log("salida promedio "+this.precio);
 
-            let salida = {
+        return this.precio;       
+    }
+
+    salida(){
+
+        this.precio = this.promedio();
+
+        console.log(" parametros \n cantidad de dias "+  this.cantidad_dias 
+                             + " \n alojamiento : "   + this.alojamiento 
+                             + " \n entretencion : "   + this.entretencion 
+                             +" \n comida : " + this.comida
+                             +" \n precio : " + this.precio);
+
+        let val_salida =  {
                 cantidad: this.cantidad_dias,
                 alojamiento: this.alojamiento,
                 entretencion: this.entretencion,
@@ -42,26 +61,13 @@ class Calcular {
                   console.log(" El precio Final es: " + this.precio);
                 },
               };
-        } 
-        else{
-            this.precio = 0;
 
-            let salida = {
-                cantidad: 0,
-                alojamiento: 0,
-                entretencion: 0,
-                comida: 0,
-                precio: function () {
-                  console.log(" El precio Final es: " + this.precio);
-                },
-              };
-        }
-
-        return salida;
+        return val_salida;
     }
 }
 
 const calculo1 = new Calcular(cantidad_dias, alojamiento, comida, entretencion);
-console.table([calculo1]);
-//console.table(calculo1.promedio());
+
+console.table(calculo1.promedio());
+console.table(calculo1.salida());
 
