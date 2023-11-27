@@ -37,29 +37,19 @@ class Calcular {
         else{
             this.precio = 0;
         }
-        console.log("salida promedio "+this.precio);
-
         return this.precio;       
     }
 
     salida(){
 
         this.precio = this.promedio();
-
-        console.log(" parametros \n cantidad de dias "+  this.cantidad_dias 
-                             + " \n alojamiento : "   + this.alojamiento 
-                             + " \n entretencion : "   + this.entretencion 
-                             +" \n comida : " + this.comida
-                             +" \n precio : " + this.precio);
-
+        
         let val_salida =  {
                 cantidad: this.cantidad_dias,
                 alojamiento: this.alojamiento,
                 entretencion: this.entretencion,
                 comida: this.comida,
-                precio: function () {
-                  console.log(" El precio Final es: " + this.precio);
-                },
+                precio: this.precio                
               };
 
         return val_salida;
@@ -67,7 +57,5 @@ class Calcular {
 }
 
 const calculo1 = new Calcular(cantidad_dias, alojamiento, comida, entretencion);
-
-console.table(calculo1.promedio());
 console.table(calculo1.salida());
 
