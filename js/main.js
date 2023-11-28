@@ -37,7 +37,7 @@ class Calcular {
         else{
             this.precio = 0;
         }
-        return this.precio;       
+        return parseInt(this.precio);       
     }
 
     salida(){
