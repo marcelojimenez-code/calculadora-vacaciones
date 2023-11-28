@@ -56,6 +56,14 @@ class Calcular {
     }
 }
 
-const calculo1 = new Calcular(cantidad_dias, alojamiento, comida, entretencion);
+const calculo1      = new Calcular(cantidad_dias, alojamiento, comida, entretencion);
+const valores       = calculo1.salida();
+const resultDiv     = document.getElementById("resultado");
+
+resultDiv.innerHTML = `Cantidad de días: ${valores.cantidad}<br>
+                        Valor día de alojamiento: ${valores.alojamiento}<br>
+                        Gasto de entretención: ${valores.entretencion}<br>
+                        Precio de comida: ${valores.comida}<br>
+                        Precio final: ${valores.precio}`;
 console.table(calculo1.salida());
 
